@@ -30,20 +30,25 @@ python3 -m pip install --user virtualenv
 # You should have Python 3.7 available in your host. 
 # Check the Python path using `which python3`
 # Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
-```
+python3 -m venv ~/.devops
+source ~/.devops/bin/activate
+
 * Run `make install` to install the necessary dependencies
 
-### Running `app.py`
+3. Running application
+    1. Standalone:
+        Run python app.py
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
-
-### Kubernetes Steps
-
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+    2. Run in Docker:
+        Run ./run_docker.sh 
+        Run ./make_prediction.sh 
+        
+    3. Run in Kubernetes:
+        Run ./upload_docker.sh 
+        Run minikube start 
+        Run kubectl config view 
+        Run ./run_kubernetes.sh 
+        Run ./make_prediction.sh 
+    4. Clean up kubernetes cluster
+        Run minikube delete
+        Run minikube stop
